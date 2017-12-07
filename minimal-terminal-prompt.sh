@@ -1,8 +1,9 @@
 
 RESET='\e[0m'
 COL_USER_HOST='\e[96m'
-COL_CURRENT_PATH='\e[90m'
 COL_CURSOR='\e[96m'
+COL_CURRENT_PATH='\e[90m'
+COL_GIT_STATUS='\e[90m'
 
 
 parse_git_branch() {
@@ -10,6 +11,7 @@ parse_git_branch() {
 }
 
 PS1="${COL_USER_HOST}\u @ \h ${COL_CURRENT_PATH}\w "
+PS1+="${COL_GIT_STATUS}"
 PS1+='$(parse_git_branch)'
 PS1+="\n${COL_CURSOR}└─▶ "
 PS1+="${RESET}"
