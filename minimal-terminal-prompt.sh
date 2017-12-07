@@ -1,17 +1,42 @@
 
-RESET='\e[0m'
-COL_USER_HOST='\e[96m'
-COL_CURSOR='\e[96m'
-COL_CURRENT_PATH='\e[90m'
-COL_GIT_STATUS='\e[90m'
+## Define all the colors
+
+RESET='\e[0m' # What color will comand outputs be in
+COL_USER_HOST='\e[34m' # The color of 'user@host.ext'
+COL_CURSOR='\e[34m' # The color of the trailing cursor arrow
+COL_CURRENT_PATH='\e[37m' # The color of the current directory full path
+
+COL_GIT_STATUS_CLEAN='\e[93m' # Color of fresh git branch name, with NO changes
+COL_GIT_STATUS_CHANGES='\e[92m' # Color of git branch, affter its diverged from remote
 
 
+## If this is a valid git repo, echo the current branch name
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-PS1="${COL_USER_HOST}\u @ \h ${COL_CURRENT_PATH}\w "
-PS1+="${COL_GIT_STATUS}"
-PS1+='$(parse_git_branch)'
-PS1+="\n${COL_CURSOR}└─▶ "
-PS1+="${RESET}"
+## Echos what color the git branch should be (depending on changes)
+check_for_git_changes() {
+  if [[ "$(parse_git_branch)" ]]; then
+    if [[ `git status --porcelain` ]]; then
+      echo ${COL_GIT_STATUS_CLEAN}
+    else
+      echo ${COL_GIT_STATUS_CHANGES}
+    fi
+  fi
+}
+
+
+
+## Build-up what will be the final PS1 string
+set_bash_prompt(){
+  PS1="${COL_USER_HOST}\u @ \h ${COL_CURRENT_PATH}\w "
+  # PS1+="${COL_GIT_STATUS}"
+  PS1+="$(check_for_git_changes)"
+  PS1+="$(parse_git_branch)"
+  PS1+="\n${COL_CURSOR}└─▶ "
+  PS1+="${RESET}"
+}
+
+## Done, now just set the PS1 prompt :)
+PROMPT_COMMAND=set_bash_prompt
