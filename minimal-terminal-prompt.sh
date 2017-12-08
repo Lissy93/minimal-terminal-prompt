@@ -5,9 +5,9 @@ RESET='\e[0m' # What color will comand outputs be in
 COL_USER_HOST='\e[34m' # The color of 'user@host.ext'
 COL_CURSOR='\e[34m' # The color of the trailing cursor arrow
 COL_CURRENT_PATH='\e[37m' # The color of the current directory full path
-
 COL_GIT_STATUS_CLEAN='\e[93m' # Color of fresh git branch name, with NO changes
 COL_GIT_STATUS_CHANGES='\e[92m' # Color of git branch, affter its diverged from remote
+BOLD='\e[1m' # BOLD
 
 
 ## If this is a valid git repo, echo the current branch name
@@ -30,8 +30,7 @@ check_for_git_changes() {
 
 ## Build-up what will be the final PS1 string
 set_bash_prompt(){
-  PS1="${COL_USER_HOST}\u @ \h ${COL_CURRENT_PATH}\w "
-  # PS1+="${COL_GIT_STATUS}"
+  PS1="${BOLD}${COL_USER_HOST}\u @ \h ${RESET}${COL_CURRENT_PATH}\w "
   PS1+="$(check_for_git_changes)"
   PS1+="$(parse_git_branch)"
   PS1+="\n${COL_CURSOR}└─▶ "
