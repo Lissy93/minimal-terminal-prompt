@@ -4,8 +4,10 @@
 
 A clean PS1 bash prompt, showing user, host and pathname
 
+<p align="center">
+  <img src="demo.gif" />
+</p>
 
-![Demo](demo.gif)
 
 ## Bash Installation 
 
