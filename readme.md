@@ -35,4 +35,5 @@ the file `~/.bash_profile` can be used in place of  `~/.bashrc`. Read more about
 ##  References and Further Reading
 
 All the information you could ever want to know about customising your bash PS1 prompt
-can be found on this detailed Linux Documentation and how-to guide, by Giles Orr: http://tldp.org/HOWTO/Bash-Prompt-HOWTO/
+can be found on this detailed Linux Documentation and how-to guide, by Giles Orr:
+[TLDP: Bash Prompt How-To](http://tldp.org/HOWTO/Bash-Prompt-HOWTO/)
