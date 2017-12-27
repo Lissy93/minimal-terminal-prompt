@@ -7,12 +7,27 @@ A clean PS1 bash prompt, showing user, host and pathname
 
 ![Demo](demo.gif)
 
-## Bash Installation 
+## Installation
 
-### Windows
+Clone and cd into the repo, then just copy the desired PS1 .sh file contents into your  `~/.bashrc`
+```
+cat minimal-terminal-prompt.sh  >> ~/.bashrc
+```
 
-### OSX
+Then reload the new updated profile, either by restarting your terminal, or by running:
+```
+source ~/.bashrc
+```
 
-### Linux
+Done 😎
+
+_(**Note (for Mac OS X):** Because by default OS X starts a login session first,
+the file `~/.bash_profile` can be used in place of  `~/.bashrc`. Read more about this on this
+[GNU Documentation Article](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html). )_
 
 
+
+##  References and Further Reading
+
+All the information you could ever want to know about customising your bash PS1 prompt
+can be found on this detailed Linux Documentation and how-to guide, by Giles Orr: http://tldp.org/HOWTO/Bash-Prompt-HOWTO/
