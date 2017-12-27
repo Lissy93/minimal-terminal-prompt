@@ -11,8 +11,8 @@ A clean PS1 bash prompt, showing user, host and pathname
 
 ## Installation
 
-Clone and cd into the repo, then just copy the desired PS1 .sh file contents into your  `~/.bashrc`
-Then just reload the new updated profile (either by restarting your terminal, or by running `source ~/.bashrc`)
+Clone and cd into the repo, then copy the desired PS1 .sh file contents into your  `~/.bashrc`.
+Then just reload your bash profile (either restart your cmd, or run the  source command)
 
 ```
 git clone https://github.com/Lissy93/minimal-terminal-prompt.git
