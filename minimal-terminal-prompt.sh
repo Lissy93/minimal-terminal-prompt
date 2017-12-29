@@ -1,3 +1,4 @@
+#!/bin/bash
 
 ## Define all the colors
 COL_USER_HOST='\e[35m' # The color of 'user@host.ext'
