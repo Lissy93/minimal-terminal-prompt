@@ -23,7 +23,7 @@ parse_git_branch() {
 ## Echos what color the git branch should be (depending on changes)
 check_for_git_changes() {
   if [[ "$(parse_git_branch)" ]]; then
-    if [[ `git status --porcelain` ]]; then
+    if [[ $(git status --porcelain) ]]; then
       echo ${COL_GIT_STATUS_CLEAN}
     else
       echo ${COL_GIT_STATUS_CHANGES}
