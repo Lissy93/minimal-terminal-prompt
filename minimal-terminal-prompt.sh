@@ -14,7 +14,6 @@ BOLD='\e[1m' # BOLD
 ## Config
 SHOW_GIT=true
 
-
 ## If this is a valid git repo, echo the current branch name
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -30,8 +29,6 @@ check_for_git_changes() {
     fi
   fi
 }
-
-
 
 ## Build-up what will be the final PS1 string
 set_bash_prompt(){
