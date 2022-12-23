@@ -1,15 +1,15 @@
 #!/bin/bash
 
 ## Define all the colors
-COL_USER_HOST='\e[35m' # The color of 'user@host.ext'
-COL_CURSOR='\e[35m' # The color of the trailing cursor arrow
-COL_CURRENT_PATH='\e[37m' # The color of the current directory full path
-COL_GIT_STATUS_CLEAN='\e[93m' # Color of fresh git branch name, with NO changes
-COL_GIT_STATUS_CHANGES='\e[92m' # Color of git branch, affter its diverged from remote
+COL_USER_HOST='\[\e[35m\]' # The color of 'user@host.ext'
+COL_CURSOR='\[\e[35m\]' # The color of the trailing cursor arrow
+COL_CURRENT_PATH='\[\e[37m\]' # The color of the current directory full path
+COL_GIT_STATUS_CLEAN='\[\e[93m\]' # Color of fresh git branch name, with NO changes
+COL_GIT_STATUS_CHANGES='\[\e[92m\]' # Color of git branch, affter its diverged from remote
 
 ## Text Styles
-RESET='\e[0m' # What color will comand outputs be in
-BOLD='\e[1m' # BOLD
+RESET='\[\e[0m\]' # What color will comand outputs be in
+BOLD='\[\e[1m\]' # BOLD
 
 ## Config
 SHOW_GIT=true
