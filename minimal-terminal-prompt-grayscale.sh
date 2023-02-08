@@ -17,7 +17,7 @@ set_bash_prompt(){
   PS1="${RESET}\n"
   PS1+="@\u ➜ ${BOLD}\w ${RESET}"
 
-  if [ "$SHOW_GIT" = true ] ; then
+  if [ "$SHOW_GIT" = true ] && [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = true ] ; then
     PS1+="$(parse_git_branch)"
   fi
 
