@@ -20,13 +20,11 @@ parse_git_branch() {
 }
 
 ## Echos what color the git branch should be (depending on changes)
-check_for_git_changes() {
-  if [[ "$(parse_git_branch)" ]]; then
-    if [[ $(git status --porcelain) ]]; then
-      echo ${COL_GIT_STATUS_CLEAN}
-    else
-      echo ${COL_GIT_STATUS_CHANGES}
-    fi
+parse_git_changes() {
+  if [[ $(git status --porcelain) ]]; then
+    echo ${COL_GIT_STATUS_CLEAN}
+  else
+    echo ${COL_GIT_STATUS_CHANGES}
   fi
 }
 
@@ -35,8 +33,8 @@ set_bash_prompt(){
   PS1="${RESET}"
   PS1+="${BOLD}${COL_USER_HOST}\u @ \h ${RESET}${COL_CURRENT_PATH}\w "
 
-  if [ "$SHOW_GIT" = true ] ; then
-    PS1+="$(check_for_git_changes)"
+  if [ "$SHOW_GIT" = true ] && [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = true ] ; then
+    PS1+="$(parse_git_changes)"
     PS1+="$(parse_git_branch)"
   fi
 
