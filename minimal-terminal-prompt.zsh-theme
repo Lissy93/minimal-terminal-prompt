@@ -14,7 +14,6 @@
 eval col_gray='$FG[240]'
 eval col_primary='$FG[032]'
 eval col_diff='$FG[214]'
-eval col_diff='$FG[214]'
 eval col_same='$FG[034]'
 
 
